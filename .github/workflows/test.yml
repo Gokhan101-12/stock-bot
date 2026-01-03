@@ -1,0 +1,22 @@
+name: Manuel Test Calistir
+
+on:
+  workflow_dispatch: # Iste bu satir "Run" butonunu aktif eder
+
+jobs:
+  test-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Depoyu Cek
+        uses: actions/checkout@v3
+
+      - name: Python Kur
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Kutuphaneleri Yukle
+        run: pip install yfinance requests
+
+      - name: Scripti Calistir
+        run: python main.py
